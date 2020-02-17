@@ -30,6 +30,18 @@ export function todoReducer(state, action) {
                todos: state.todos.concat({item: action.payload, completed:false, id: Date.now()})
             };
         }
+        case MARK_COMPLETED : {
+            const id = action.payload;
+            return{
+                ...state,
+                todos:state.todos.map(todo => {
+                    if(todo.id === id){
+                        return{...todo, completed:!todo.completed}
+                    }
+                    return todo
+                })
+            }
+        }
         case CLEAR_COMPLETED: {
             return {
                 ...state,
