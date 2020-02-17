@@ -16,6 +16,7 @@ const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 export function todoReducer(state, action){
     switch(action.type) {
         case TOGGLE_TODO: {
+            const todoId = action.payload
            return {
                ...state,
                todos:state.todos.map(todo => {
@@ -26,17 +27,17 @@ export function todoReducer(state, action){
            }
             }
         case ADD_TODO:{
-            const newTodo=action.payload;
+            const newItem=action.payload;
             return {
                 ...state,
-                todos:state.todos.concat(newTodo)
+                todos:state.todos.concat({item:action.payload, id: Date.now(), completed: false})
             };
         }
         case MARK_COMPLETED: {
+            const todoId = action.payload;
             return {
                 ...state,
                 todos: state.todos.map(todo =>{
-                    const todoId = action.payload
                     if(todo.id === todoId){
                         return{...todo, completed: !todo.completed}
                     }
@@ -53,6 +54,6 @@ export function todoReducer(state, action){
             }
         }
         default:
-            return state
+            return state//in case an action is passed in we don't understand
         }
     }
