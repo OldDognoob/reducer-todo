@@ -64,14 +64,25 @@ function App() {
     dispatch({ type: 'TOGGLE_TODO', payload: id });
   };
 
+  const markCompleted = id => {
+    dispatch({type: 'MARK_COMPLETED', payload: id});
+  };
+
   const clearCompleted = id => {
     dispatch({ type: 'CLEAR_COMPLETED', payload: id });
   };
 
   return (
     <div className="App">
-      <TodoForm addTodo={addTodo} clearCompleted={clearCompleted} />
-      <TodoList todos={state.todos} toggle={toggleTodo} />
+      <TodoForm 
+      addTodo={addTodo} 
+      markCompleted={markCompleted} 
+      clearCompleted={clearCompleted} 
+      />
+      <TodoList 
+      todos={state.todos} 
+      toggle={toggleTodo} 
+      />
     </div>
   );
 }
