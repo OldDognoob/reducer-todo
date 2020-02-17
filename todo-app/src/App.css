@@ -44,5 +44,26 @@
   justify-content: center;
   align-items: center;
   border: 2px solid red;
-  min-height: 100vh;
+  min-height:90vh;
+  min-width: 80%;
+  max-width: 300px;
+  padding: 4px 10px;
+  font-size: 18px;
+  margin-right: 10px;
+  
+}
+
+.todo-add {
+  background-color: #d3e9f6;
+  border: 1px solid #d3e9f6;
+}
+
+.todo-clear {
+  background-color: #98fb98;
+  border: 1px solid #98fb98;
+}
+
+.togo-item {
+  color: #666;
+  text-decoration: line-through;
 }
