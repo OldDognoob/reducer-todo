@@ -8,19 +8,22 @@ export const initialState = {
     ]
 };
 
-const INPUT_CHANGE = "INPUT_CHANGE";
+const TOGGLE_TODO = "TOGGLE_TODO";
 const ADD_TODO = "ADD_TODO";
 const MARK_COMPLETED = "MARK_COMPLETED";
 const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 
 export function todoReducer(state, action){
     switch(action.type) {
-        case INPUT_CHANGE: {
-            return {
-                ...state,
-                //inputName:action.payload.name, inputValue:action.payload.value
-                [action.payload.name]:action.payload.value
-            };
+        case TOGGLE_TODO: {
+           return {
+               ...state,
+               todos:state.todos.map(todo => {
+                   if(todo.id !== todoId){
+                       return todo
+                   }
+               })
+           }
             }
         case ADD_TODO:{
             const newTodo=action.payload;
