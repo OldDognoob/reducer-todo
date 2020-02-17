@@ -20,7 +20,7 @@ const TodoForm = ({ addTodo, clearCompleted }) => {
         type="text"
         name="item"
         placeholder="new todo"
-        onChange={e => setItem(e.target.value)}
+        onChange={event => setItem(event.target.value)}
         value={item}
       />
       <div className="todo-btn">
